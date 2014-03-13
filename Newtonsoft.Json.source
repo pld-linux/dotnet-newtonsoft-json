@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<monodoc>
+  <node label="Newtonsoft.Json" name="Newtonsoft.Json" parent="libraries" />
+  <source provider="ecma" basefile="Newtonsoft.Json" path="Newtonsoft.Json" />
+</monodoc>
