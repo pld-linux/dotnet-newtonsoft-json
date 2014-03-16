@@ -3,7 +3,7 @@ Summary:	Json.NET - a popular high-performance JSON framework for .NET
 Summary(pl.UTF-8):	Json.NET - popularny, wydajny szkielet JSON dla .NET
 Name:		dotnet-newtonsoft-json
 Version:	6.0.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 Source0:	https://github.com/JamesNK/Newtonsoft.Json/archive/%{version}/Newtonsoft.Json-%{version}.tar.gz
@@ -15,13 +15,12 @@ BuildRequires:	mono-csharp
 # xbuild
 BuildRequires:	mono-devel
 BuildRequires:	mono-monodoc
+BuildRequires:	rpmbuild(macros) >= 1.446
 BuildRequires:	rpmbuild(monoautodeps)
 Requires:	mono
 ExclusiveArch:	%{ix86} %{x8664} arm ia64 ppc s390 s390x sparc sparcv9 sparc64
 ExcludeArch:	i386
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
-%define		_spkgconfigdir	%{_prefix}/lib/pkgconfig
 
 %description
 Json.NET is a popular high-performance JSON framework for .NET.
@@ -79,7 +78,7 @@ mdoc assemble \
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_spkgconfigdir},%{_prefix}/lib/monodoc/sources}
+install -d $RPM_BUILD_ROOT{%{_npkgconfigdir},%{_prefix}/lib/monodoc/sources}
 
 gacutil -f -i Src/Newtonsoft.Json/bin/Release/Net40/Newtonsoft.Json.dll \
 	/package Newtonsoft.Json-6.0 \
@@ -90,7 +89,7 @@ cp -p Newtonsoft.Json.{zip,tree} %{SOURCE2} $RPM_BUILD_ROOT%{_prefix}/lib/monodo
 %{__sed} -e 's,@prefix@,%{_prefix},' \
 	-e 's,@VERSION@,%{version},' \
 	-e 's,@MAJOR@,6.0,' \
-	%{SOURCE1} > $RPM_BUILD_ROOT%{_spkgconfigdir}/newtonsoft-json.pc
+	%{SOURCE1} > $RPM_BUILD_ROOT%{_npkgconfigdir}/newtonsoft-json.pc
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -104,4 +103,4 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %{_prefix}/lib/mono/Newtonsoft.Json-6.0
 %{_prefix}/lib/monodoc/sources/Newtonsoft.Json.*
-%{_spkgconfigdir}/newtonsoft-json.pc
+%{_npkgconfigdir}/newtonsoft-json.pc
