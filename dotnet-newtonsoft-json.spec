@@ -1,4 +1,3 @@
-%include	/usr/lib/rpm/macros.mono
 Summary:	Json.NET - a popular high-performance JSON framework for .NET
 Summary(pl.UTF-8):	Json.NET - popularny, wydajny szkielet JSON dla .NET
 Name:		dotnet-newtonsoft-json
