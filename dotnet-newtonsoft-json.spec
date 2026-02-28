@@ -2,7 +2,7 @@ Summary:	Json.NET - a popular high-performance JSON framework for .NET
 Summary(pl.UTF-8):	Json.NET - popularny, wydajny szkielet JSON dla .NET
 Name:		dotnet-newtonsoft-json
 Version:	9.0.1
-Release:	1
+Release:	2
 License:	MIT
 Group:		Libraries
 #Source0Download: https://github.com/JamesNK/Newtonsoft.Json/releases
